@@ -1,0 +1,3 @@
+/home/aspen/Desktop/MNN-YOLOv3/build/CMakeFiles/rebuild_cache.dir
+/home/aspen/Desktop/MNN-YOLOv3/build/CMakeFiles/Ultra-face-mnn.dir
+/home/aspen/Desktop/MNN-YOLOv3/build/CMakeFiles/edit_cache.dir

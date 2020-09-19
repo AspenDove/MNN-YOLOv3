@@ -1,0 +1,114 @@
+mini_batch = 1, batch = 20, time_steps = 1, train = 0 
+   layer   filters  size/strd(dil)      input                output
+   0 conv     32       3 x 3/ 1    608 x 608 x   3 ->  608 x 608 x  32 0.639 BF
+   1 conv     64       3 x 3/ 2    608 x 608 x  32 ->  304 x 304 x  64 3.407 BF
+   2 conv     32       1 x 1/ 1    304 x 304 x  64 ->  304 x 304 x  32 0.379 BF
+   3 conv     64       3 x 3/ 1    304 x 304 x  32 ->  304 x 304 x  64 3.407 BF
+   4 Shortcut Layer: 1,  wt = 0, wn = 0, outputs: 304 x 304 x  64 0.006 BF
+   5 conv    128       3 x 3/ 2    304 x 304 x  64 ->  152 x 152 x 128 3.407 BF
+   6 conv     64       1 x 1/ 1    152 x 152 x 128 ->  152 x 152 x  64 0.379 BF
+   7 conv    128       3 x 3/ 1    152 x 152 x  64 ->  152 x 152 x 128 3.407 BF
+   8 Shortcut Layer: 5,  wt = 0, wn = 0, outputs: 152 x 152 x 128 0.003 BF
+   9 conv     64       1 x 1/ 1    152 x 152 x 128 ->  152 x 152 x  64 0.379 BF
+  10 conv    128       3 x 3/ 1    152 x 152 x  64 ->  152 x 152 x 128 3.407 BF
+  11 Shortcut Layer: 8,  wt = 0, wn = 0, outputs: 152 x 152 x 128 0.003 BF
+  12 conv    256       3 x 3/ 2    152 x 152 x 128 ->   76 x  76 x 256 3.407 BF
+  13 conv    128       1 x 1/ 1     76 x  76 x 256 ->   76 x  76 x 128 0.379 BF
+  14 conv    256       3 x 3/ 1     76 x  76 x 128 ->   76 x  76 x 256 3.407 BF
+  15 Shortcut Layer: 12,  wt = 0, wn = 0, outputs:  76 x  76 x 256 0.001 BF
+  16 conv    128       1 x 1/ 1     76 x  76 x 256 ->   76 x  76 x 128 0.379 BF
+  17 conv    256       3 x 3/ 1     76 x  76 x 128 ->   76 x  76 x 256 3.407 BF
+  18 Shortcut Layer: 15,  wt = 0, wn = 0, outputs:  76 x  76 x 256 0.001 BF
+  19 conv    128       1 x 1/ 1     76 x  76 x 256 ->   76 x  76 x 128 0.379 BF
+  20 conv    256       3 x 3/ 1     76 x  76 x 128 ->   76 x  76 x 256 3.407 BF
+  21 Shortcut Layer: 18,  wt = 0, wn = 0, outputs:  76 x  76 x 256 0.001 BF
+  22 conv    128       1 x 1/ 1     76 x  76 x 256 ->   76 x  76 x 128 0.379 BF
+  23 conv    256       3 x 3/ 1     76 x  76 x 128 ->   76 x  76 x 256 3.407 BF
+  24 Shortcut Layer: 21,  wt = 0, wn = 0, outputs:  76 x  76 x 256 0.001 BF
+  25 conv    128       1 x 1/ 1     76 x  76 x 256 ->   76 x  76 x 128 0.379 BF
+  26 conv    256       3 x 3/ 1     76 x  76 x 128 ->   76 x  76 x 256 3.407 BF
+  27 Shortcut Layer: 24,  wt = 0, wn = 0, outputs:  76 x  76 x 256 0.001 BF
+  28 conv    128       1 x 1/ 1     76 x  76 x 256 ->   76 x  76 x 128 0.379 BF
+  29 conv    256       3 x 3/ 1     76 x  76 x 128 ->   76 x  76 x 256 3.407 BF
+  30 Shortcut Layer: 27,  wt = 0, wn = 0, outputs:  76 x  76 x 256 0.001 BF
+  31 conv    128       1 x 1/ 1     76 x  76 x 256 ->   76 x  76 x 128 0.379 BF
+  32 conv    256       3 x 3/ 1     76 x  76 x 128 ->   76 x  76 x 256 3.407 BF
+  33 Shortcut Layer: 30,  wt = 0, wn = 0, outputs:  76 x  76 x 256 0.001 BF
+  34 conv    128       1 x 1/ 1     76 x  76 x 256 ->   76 x  76 x 128 0.379 BF
+  35 conv    256       3 x 3/ 1     76 x  76 x 128 ->   76 x  76 x 256 3.407 BF
+  36 Shortcut Layer: 33,  wt = 0, wn = 0, outputs:  76 x  76 x 256 0.001 BF
+  37 conv    512       3 x 3/ 2     76 x  76 x 256 ->   38 x  38 x 512 3.407 BF
+  38 conv    256       1 x 1/ 1     38 x  38 x 512 ->   38 x  38 x 256 0.379 BF
+  39 conv    512       3 x 3/ 1     38 x  38 x 256 ->   38 x  38 x 512 3.407 BF
+  40 Shortcut Layer: 37,  wt = 0, wn = 0, outputs:  38 x  38 x 512 0.001 BF
+  41 conv    256       1 x 1/ 1     38 x  38 x 512 ->   38 x  38 x 256 0.379 BF
+  42 conv    512       3 x 3/ 1     38 x  38 x 256 ->   38 x  38 x 512 3.407 BF
+  43 Shortcut Layer: 40,  wt = 0, wn = 0, outputs:  38 x  38 x 512 0.001 BF
+  44 conv    256       1 x 1/ 1     38 x  38 x 512 ->   38 x  38 x 256 0.379 BF
+  45 conv    512       3 x 3/ 1     38 x  38 x 256 ->   38 x  38 x 512 3.407 BF
+  46 Shortcut Layer: 43,  wt = 0, wn = 0, outputs:  38 x  38 x 512 0.001 BF
+  47 conv    256       1 x 1/ 1     38 x  38 x 512 ->   38 x  38 x 256 0.379 BF
+  48 conv    512       3 x 3/ 1     38 x  38 x 256 ->   38 x  38 x 512 3.407 BF
+  49 Shortcut Layer: 46,  wt = 0, wn = 0, outputs:  38 x  38 x 512 0.001 BF
+  50 conv    256       1 x 1/ 1     38 x  38 x 512 ->   38 x  38 x 256 0.379 BF
+  51 conv    512       3 x 3/ 1     38 x  38 x 256 ->   38 x  38 x 512 3.407 BF
+  52 Shortcut Layer: 49,  wt = 0, wn = 0, outputs:  38 x  38 x 512 0.001 BF
+  53 conv    256       1 x 1/ 1     38 x  38 x 512 ->   38 x  38 x 256 0.379 BF
+  54 conv    512       3 x 3/ 1     38 x  38 x 256 ->   38 x  38 x 512 3.407 BF
+  55 Shortcut Layer: 52,  wt = 0, wn = 0, outputs:  38 x  38 x 512 0.001 BF
+  56 conv    256       1 x 1/ 1     38 x  38 x 512 ->   38 x  38 x 256 0.379 BF
+  57 conv    512       3 x 3/ 1     38 x  38 x 256 ->   38 x  38 x 512 3.407 BF
+  58 Shortcut Layer: 55,  wt = 0, wn = 0, outputs:  38 x  38 x 512 0.001 BF
+  59 conv    256       1 x 1/ 1     38 x  38 x 512 ->   38 x  38 x 256 0.379 BF
+  60 conv    512       3 x 3/ 1     38 x  38 x 256 ->   38 x  38 x 512 3.407 BF
+  61 Shortcut Layer: 58,  wt = 0, wn = 0, outputs:  38 x  38 x 512 0.001 BF
+  62 conv   1024       3 x 3/ 2     38 x  38 x 512 ->   19 x  19 x1024 3.407 BF
+  63 conv    512       1 x 1/ 1     19 x  19 x1024 ->   19 x  19 x 512 0.379 BF
+  64 conv   1024       3 x 3/ 1     19 x  19 x 512 ->   19 x  19 x1024 3.407 BF
+  65 Shortcut Layer: 62,  wt = 0, wn = 0, outputs:  19 x  19 x1024 0.000 BF
+  66 conv    512       1 x 1/ 1     19 x  19 x1024 ->   19 x  19 x 512 0.379 BF
+  67 conv   1024       3 x 3/ 1     19 x  19 x 512 ->   19 x  19 x1024 3.407 BF
+  68 Shortcut Layer: 65,  wt = 0, wn = 0, outputs:  19 x  19 x1024 0.000 BF
+  69 conv    512       1 x 1/ 1     19 x  19 x1024 ->   19 x  19 x 512 0.379 BF
+  70 conv   1024       3 x 3/ 1     19 x  19 x 512 ->   19 x  19 x1024 3.407 BF
+  71 Shortcut Layer: 68,  wt = 0, wn = 0, outputs:  19 x  19 x1024 0.000 BF
+  72 conv    512       1 x 1/ 1     19 x  19 x1024 ->   19 x  19 x 512 0.379 BF
+  73 conv   1024       3 x 3/ 1     19 x  19 x 512 ->   19 x  19 x1024 3.407 BF
+  74 Shortcut Layer: 71,  wt = 0, wn = 0, outputs:  19 x  19 x1024 0.000 BF
+  75 conv    512       1 x 1/ 1     19 x  19 x1024 ->   19 x  19 x 512 0.379 BF
+  76 conv   1024       3 x 3/ 1     19 x  19 x 512 ->   19 x  19 x1024 3.407 BF
+  77 conv    512       1 x 1/ 1     19 x  19 x1024 ->   19 x  19 x 512 0.379 BF
+  78 conv   1024       3 x 3/ 1     19 x  19 x 512 ->   19 x  19 x1024 3.407 BF
+  79 conv    512       1 x 1/ 1     19 x  19 x1024 ->   19 x  19 x 512 0.379 BF
+  80 conv   1024       3 x 3/ 1     19 x  19 x 512 ->   19 x  19 x1024 3.407 BF
+  81 conv     21       1 x 1/ 1     19 x  19 x1024 ->   19 x  19 x  21 0.016 BF
+  82 yolo
+[yolo] params: iou loss: mse (2), iou_norm: 0.75, cls_norm: 1.00, scale_x_y: 1.00
+  83 route  79 		                           ->   19 x  19 x 512 
+  84 conv    256       1 x 1/ 1     19 x  19 x 512 ->   19 x  19 x 256 0.095 BF
+  85 upsample                 2x    19 x  19 x 256 ->   38 x  38 x 256
+  86 route  85 61 	                           ->   38 x  38 x 768 
+  87 conv    256       1 x 1/ 1     38 x  38 x 768 ->   38 x  38 x 256 0.568 BF
+  88 conv    512       3 x 3/ 1     38 x  38 x 256 ->   38 x  38 x 512 3.407 BF
+  89 conv    256       1 x 1/ 1     38 x  38 x 512 ->   38 x  38 x 256 0.379 BF
+  90 conv    512       3 x 3/ 1     38 x  38 x 256 ->   38 x  38 x 512 3.407 BF
+  91 conv    256       1 x 1/ 1     38 x  38 x 512 ->   38 x  38 x 256 0.379 BF
+  92 conv    512       3 x 3/ 1     38 x  38 x 256 ->   38 x  38 x 512 3.407 BF
+  93 conv     21       1 x 1/ 1     38 x  38 x 512 ->   38 x  38 x  21 0.031 BF
+  94 yolo
+[yolo] params: iou loss: mse (2), iou_norm: 0.75, cls_norm: 1.00, scale_x_y: 1.00
+  95 route  91 		                           ->   38 x  38 x 256 
+  96 conv    128       1 x 1/ 1     38 x  38 x 256 ->   38 x  38 x 128 0.095 BF
+  97 upsample                 2x    38 x  38 x 128 ->   76 x  76 x 128
+  98 route  97 36 	                           ->   76 x  76 x 384 
+  99 conv    128       1 x 1/ 1     76 x  76 x 384 ->   76 x  76 x 128 0.568 BF
+ 100 conv    256       3 x 3/ 1     76 x  76 x 128 ->   76 x  76 x 256 3.407 BF
+ 101 conv    128       1 x 1/ 1     76 x  76 x 256 ->   76 x  76 x 128 0.379 BF
+ 102 conv    256       3 x 3/ 1     76 x  76 x 128 ->   76 x  76 x 256 3.407 BF
+ 103 conv    128       1 x 1/ 1     76 x  76 x 256 ->   76 x  76 x 128 0.379 BF
+ 104 conv    256       3 x 3/ 1     76 x  76 x 128 ->   76 x  76 x 256 3.407 BF
+ 105 conv     21       1 x 1/ 1     76 x  76 x 256 ->   76 x  76 x  21 0.062 BF
+ 106 yolo
+[yolo] params: iou loss: mse (2), iou_norm: 0.75, cls_norm: 1.00, scale_x_y: 1.00
+Total BFLOPS 139.512 
+avg_outputs = 1104194 
